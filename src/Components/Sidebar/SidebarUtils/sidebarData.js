@@ -1,13 +1,10 @@
-import { IoHomeOutline } from "react-icons/io5";
-import { SiYoutubeshorts } from "react-icons/si";
-import { MdOutlineSubscriptions } from "react-icons/md";
-import { ImProfile } from "react-icons/im";
-import { FaHistory } from "react-icons/fa";
-import { AiOutlineLike } from "react-icons/ai";
-import { LiaDownloadSolid } from "react-icons/lia";
-import { MdPlaylistPlay } from "react-icons/md";
-import { MdOutlineVideoSettings } from "react-icons/md";
-import { FaRegClock } from "react-icons/fa6";
+export const MiniSidebarnavigationItems = [
+    { icon: "IoHomeOutline", title: "Home" },
+    { icon: "SiYoutubeshorts", title: "Shorts" },
+    { icon: "MdOutlineSubscriptions", title: "Subscription" },
+    { icon: "ImProfile", title: "You" },
+    { icon: "LiaDownloadSolid", title: "Downloads" },
+];
 
 export const navigationItems = [
     { icon: "IoHomeOutline", title: "Home" },

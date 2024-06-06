@@ -1,15 +1,18 @@
+import { useSelector } from "react-redux";
 import "./App.css";
-import { Feed } from "./Components/Feed";
-import Navbar from "./Components/Navbar";
-import { Sidebar } from "./Components/Sidebar";
+import { MiniSidebar } from "./Components/Sidebar/MiniSidebar";
+import { Sidebar } from "./Components/Sidebar/Sidebar";
+import { Feed } from "./Components/Feed/Feed";
+import Navbar from "./Components/Navbar/Navbar";
 
 function App() {
+    const showSidebar = useSelector((store) => store.showSidebar);
     return (
-        <div className='bg-black'>
+        <div className='bg-black w-full h-screen flex flex-col'>
             <Navbar />
-            <div className='flex text-white'>
-                <Sidebar />
-                {/* <Feed /> */}
+            <div className='flex overflow-x-hidden w-full'>
+                {showSidebar ? <Sidebar /> : <MiniSidebar />}
+                <Feed />
             </div>
         </div>
     );
