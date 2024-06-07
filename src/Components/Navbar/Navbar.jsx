@@ -15,12 +15,12 @@ export default function Navbar() {
     };
     return (
         <nav className='sticky top-0 left-0 z-50 px-4 py-2 px-6 flex justify-between items-center w-full bg-black text-white'>
-            <div className='flex space-x-4 items-center w-[8%]'>
+            <div className='flex space-x-4 items-center w-[110px]'>
                 <GiHamburgerMenu
-                    className='text-2xl cursor-pointer'
+                    className='text-2xl cursor-pointer lg:block hidden'
                     onClick={handelSidebar}
                 />
-                <Link to='/' className='w-20'>
+                <Link to='/' className='w-[80px]'>
                     <img
                         className='w-full'
                         src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkwr4JXRyXpBBKq-Us5WzgkQ_czHSdLPkDow&s'
@@ -40,7 +40,7 @@ export default function Navbar() {
                     <FaSearch className='text-2xl w-full' />
                 </button>
             </div>
-            <div className='w-48 flex items-center justify-between '>
+            <div className='w-40 flex items-center justify-between '>
                 <MdVideoCall size='30px' />
                 <IoMdNotifications size='30px' />
                 <Avatar

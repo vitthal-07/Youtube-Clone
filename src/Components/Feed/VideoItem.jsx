@@ -15,11 +15,15 @@ const VideoItem = ({ video, channelInfo }) => {
                 alt={title}
             />
             <div className='flex mt-3'>
-                <Avatar
-                    src={channelInfo?.snippet?.thumbnails?.medium?.url || ""}
-                    size='30'
-                    round={true}
-                />
+                <div className='w-30'>
+                    <Avatar
+                        src={
+                            channelInfo?.snippet?.thumbnails?.medium?.url || ""
+                        }
+                        size='30'
+                        round={true}
+                    />
+                </div>
                 <div className='ml-3 w-full'>
                     <div className='text-md font-bold'>{title}</div>
                     <div className='text-sm font-normal'>{channelTitle}</div>
