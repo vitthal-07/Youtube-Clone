@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
-import showSidebarSlice from "../Slices/showSidebarSlice";
 import videosSlice from "../Slices/videosSlice";
+import channelsSlice from "../Slices/channelsSlice";
+import sidebarSlice from "../Slices/SidebarSlice";
 
 const store = configureStore({
     reducer: {
-        showSidebar: showSidebarSlice.reducer,
         videos: videosSlice.reducer,
+        channels: channelsSlice.reducer,
+        sidebar: sidebarSlice.reducer,
     },
 });
 

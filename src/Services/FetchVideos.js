@@ -1,22 +1,33 @@
 import axios from "axios";
-import { videosAction } from "../Slices/videosSlice";
-import { useDispatch } from "react-redux";
+import { createAsyncThunk } from "@reduxjs/toolkit";
 
-const API_KEY = "AIzaSyAnnhBo7KHmORTVLHteBujKy9tnOqgisPY";
-const YOUTUBE_VIDEO_API =
-    "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=US&key=";
+const API_KEY = "AIzaSyCP_gh2uOnizHUaG9KKh51mBx_bEjypMXI";
 
-export const fetchVideos = async () => {
-    try {
-        const res = await axios.get(YOUTUBE_VIDEO_API + API_KEY);
-        return res?.data?.items;
-    } catch (error) {
-        console.error("Error fetching data: ", error);
-        return [];
+export const fetchVideosAsync = createAsyncThunk(
+    "videos/fetchVideos",
+    async () => {
+        const response = await axios.get(
+            `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=US&key=${API_KEY}`
+        );
+        return response.data.items;
     }
-};
+);
 
-export const fetchVideosAsync = () => async (dispatch) => {
-    const data = await fetchVideos();
-    dispatch(videosAction.setVideos(data));
-};
+export const fetchChannelsAsync = createAsyncThunk(
+    "channels/fetchChannels",
+    async (uniqueIdsMap) => {
+        const channels = {};
+        await Promise.all(
+            uniqueIdsMap.map(async (idMap) => {
+                const response = await axios.get(
+                    `https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&id=${idMap.channelId}&key=${API_KEY}`
+                );
+                const channel = response.data.items[0];
+                if (channel) {
+                    channels[idMap.videoId] = channel;
+                }
+            })
+        );
+        return channels;
+    }
+);

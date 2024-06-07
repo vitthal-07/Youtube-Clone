@@ -1,12 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { fetchVideosAsync } from "../Services/FetchVideos";
 
 const videosSlice = createSlice({
     name: "videos",
     initialState: [],
-    reducers: {
-        setVideos: (state, action) => {
+    reducers: {},
+    extraReducers: (builder) => {
+        builder.addCase(fetchVideosAsync.fulfilled, (state, action) => {
             return action.payload;
-        },
+        });
     },
 });
 

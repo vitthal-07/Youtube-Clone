@@ -5,12 +5,13 @@ import { MdVideoCall } from "react-icons/md";
 import { IoMdNotifications } from "react-icons/io";
 import Avatar from "react-avatar";
 import { useDispatch } from "react-redux";
-import { showSidebarAction } from "../../Slices/showSidebarSlice";
+import { sidebarActions } from "../../Slices/SidebarSlice";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
     const dispatch = useDispatch();
     const handelSidebar = () => {
-        dispatch(showSidebarAction.toggle());
+        dispatch(sidebarActions.toggle());
     };
     return (
         <nav className='sticky top-0 left-0 z-50 px-4 py-2 px-6 flex justify-between items-center w-full bg-black text-white'>
@@ -19,24 +20,27 @@ export default function Navbar() {
                     className='text-2xl cursor-pointer'
                     onClick={handelSidebar}
                 />
-                <img
-                    className='w-[45%]'
-                    src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkwr4JXRyXpBBKq-Us5WzgkQ_czHSdLPkDow&s'
-                    alt='Yt-Logo'
-                />
+                <Link to='/' className='w-20'>
+                    <img
+                        className='w-full'
+                        src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkwr4JXRyXpBBKq-Us5WzgkQ_czHSdLPkDow&s'
+                        alt='Yt-Logo'
+                    />
+                </Link>
             </div>
-            <div className='flex items-center w-[30%] h-8'>
+            <div className='flex items-center w-[40%] h-10'>
                 <div className='flex-grow p-1 border rounded-l-full border-gray-400 h-full'>
                     <input
                         type='text'
-                        className='bg-black w-full p-2 outline-none text-md h-full'
+                        placeholder='Search'
+                        className='bg-black w-full p-2 rounded-l-full outline-none text-md h-full'
                     />
                 </div>
-                <button className='px-2 pb-3 pt-1 w-12 border rounded-r-full border-gray-400 bg-zinc-800 h-full'>
-                    <FaSearch className='text-xl' />
+                <button className='w-16 pr-2 border rounded-r-full border-gray-400 bg-zinc-800 h-full items-center justify-center'>
+                    <FaSearch className='text-2xl w-full' />
                 </button>
             </div>
-            <div className='w-48 flex items-center space-x-12'>
+            <div className='w-48 flex items-center justify-between '>
                 <MdVideoCall size='30px' />
                 <IoMdNotifications size='30px' />
                 <Avatar

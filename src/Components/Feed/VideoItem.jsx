@@ -2,13 +2,13 @@ import React from "react";
 import Avatar from "react-avatar";
 import { formatTimeAgo, formatViewCount } from "./FeedUtils/FormatVideoData";
 
-const VideoItem = ({ video }) => {
+const VideoItem = ({ video, channelInfo }) => {
     const { snippet, statistics } = video;
     const { title, channelTitle, thumbnails, publishedAt } = snippet;
     const { viewCount } = statistics;
 
     return (
-        <div className='w-full'>
+        <div className='w-full cursor-pointer'>
             <img
                 src={thumbnails.medium.url}
                 className='w-full h-auto object-cover rounded-md'
@@ -16,11 +16,11 @@ const VideoItem = ({ video }) => {
             />
             <div className='flex mt-3'>
                 <Avatar
-                    src={video.avatar || "/Logo.svg"}
-                    size='50'
+                    src={channelInfo?.snippet?.thumbnails?.medium?.url || ""}
+                    size='30'
                     round={true}
                 />
-                <div className='ml-3'>
+                <div className='ml-3 w-full'>
                     <div className='text-md font-bold'>{title}</div>
                     <div className='text-sm font-normal'>{channelTitle}</div>
                     <div className='text-sm font-normal'>
