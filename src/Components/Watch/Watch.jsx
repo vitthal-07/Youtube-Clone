@@ -32,13 +32,14 @@ export const Watch = () => {
     console.log(currentVideo);
     console.log(currentChannel);
     const dispatch = useDispatch();
+
     useEffect(() => {
         dispatch(sidebarActions.hideSidebar());
     }, []);
 
     return (
-        <div className='py-5 mx-auto text-white w-full absolute flex flex-wrap justify-center h-fit'>
-            <div className='w-[89%] flex flex-wrap justify-between py-3'>
+        <div className='py-5 mx-auto text-white w-full absolute bg-black flex flex-wrap justify-center h-[200vh]'>
+            <div className='w-[89%] flex flex-wrap justify-between py-3 h-full'>
                 <div className='w-[1070px]'>
                     <VideoPlayer videoId={videoId} />
                     <div className='text-2xl font-bold my-2'>

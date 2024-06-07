@@ -16,8 +16,8 @@ const ChannelInfo = ({ videoId }) => {
     const currentChannel = channels[videoId];
 
     return (
-        <div className='flex items-center justify-between w-[500px]'>
-            <div className='flex flex-wrap w-[50%] justify-between'>
+        <div className='flex items-center justify-between w-[400px]'>
+            <div className='flex w-[50%] justify-between'>
                 <Avatar
                     src={currentChannel?.snippet?.thumbnails?.medium?.url || ""}
                     size='50'
