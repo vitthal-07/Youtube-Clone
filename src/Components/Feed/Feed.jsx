@@ -10,9 +10,13 @@ export const Feed = () => {
         dispatch(sidebarActions.mainSidebar());
     }, []);
     return (
-        <div className='relative right-0 mt-2  w-full'>
-            <ButtonList />
-            <VideoSection />
+        <div className='flex flex-col flex-grow items-center w-full overflow-hidden'>
+            <div className='w-full'>
+                <ButtonList />
+            </div>
+            <div className='w-full overflow-hidden'>
+                <VideoSection />
+            </div>
         </div>
     );
 };

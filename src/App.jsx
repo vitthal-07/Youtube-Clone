@@ -33,16 +33,15 @@ function App() {
                     })
                 ),
             ];
-            // console.log(uniqueIdsMap);
             await dispatch(fetchChannelsAsync(uniqueIdsMap));
         };
 
         fetchVideosAndChannels();
     }, [dispatch]);
     return (
-        <div className='bg-black w-full h-screen flex flex-col'>
+        <div className='bg-black h-fit'>
             <Navbar />
-            <div className='flex overflow-x-hidden w-[99vw] '>
+            <div className='flex'>
                 {renderSidebar()}
                 <Outlet />
             </div>

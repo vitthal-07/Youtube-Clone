@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { HiDotsVertical } from "react-icons/hi";
 import { RiCloseLargeFill } from "react-icons/ri";
 import { BsEmojiSmile } from "react-icons/bs";
@@ -13,7 +13,6 @@ import {
 
 export const LiveChat = () => {
     const input = useRef();
-    const chatContainerRef = useRef();
     const dispatch = useDispatch();
     const messages = useSelector((store) => store.messages);
 
@@ -31,21 +30,16 @@ export const LiveChat = () => {
     };
 
     useEffect(() => {
-        setInterval(() => {
+        const interval = setInterval(() => {
             const message = {
                 userName: generateRandomUsername(),
                 message: generateRandomMessage(),
             };
             dispatch(addMessage(message));
-        }, 2000);
-    }, []);
+        }, 1000);
+        return () => clearInterval(interval);
+    }, [dispatch]);
 
-    useEffect(() => {
-        if (chatContainerRef.current) {
-            chatContainerRef.current.scrollTop =
-                chatContainerRef.current.scrollHeight;
-        }
-    }, [messages]);
     return (
         <div className='border border-gray-500 rounded-lg w-full'>
             <div className='flex justify-between items-center p-3 border-b border-gray-500 z-15'>
@@ -55,10 +49,7 @@ export const LiveChat = () => {
                     <RiCloseLargeFill size={32} />
                 </div>
             </div>
-            <div
-                className='h-[30rem] overflow-y-auto p-3 '
-                ref={chatContainerRef}
-            >
+            <div className='h-[30rem] overflow-y-auto p-3 flex flex-col-reverse'>
                 {messages.map((item, idx) => {
                     return <ChatMessage key={idx} item={item} />;
                 })}

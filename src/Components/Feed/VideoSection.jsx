@@ -2,22 +2,18 @@ import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import VideoItem from "./VideoItem";
 
-import { Link } from "react-router-dom";
-
 export const VideoSection = () => {
     const videos = useSelector((state) => state.videos);
     const channels = useSelector((state) => state.channels);
 
     return (
-        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6 text-white'>
+        <div className='mt-10 gap-6 p-6 text-white grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4'>
             {videos.map((video) => (
-                <Link
-                    className='w-full '
+                <VideoItem
                     key={video.id}
-                    to={`watch?v=${video.id}`}
-                >
-                    <VideoItem video={video} channelInfo={channels[video.id]} />
-                </Link>
+                    video={video}
+                    channelInfo={channels[video.id]}
+                />
             ))}
         </div>
     );

@@ -29,8 +29,7 @@ export const Watch = () => {
     const channels = useSelector((store) => store.channels);
     const currentChannel = channels[videoId];
     const currentVideo = videos.find((video) => video.id === videoId);
-    console.log(currentVideo);
-    console.log(currentChannel);
+
     const dispatch = useDispatch();
 
     useEffect(() => {

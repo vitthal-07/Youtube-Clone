@@ -16,9 +16,9 @@ const ChannelInfo = ({ videoId }) => {
     const currentChannel = channels[videoId];
 
     return (
-        <div className='flex items-center justify-between w-[400px] overflow-hidden'>
-            <div className='flex w-[200px] justify-between'>
-                <div className='w-36'>
+        <div className='flex items-center justify-between w-[450px] overflow-hidden'>
+            <div className='flex w-[300px] justify-between'>
+                <div className='w-16'>
                     <Avatar
                         src={
                             currentChannel?.snippet?.thumbnails?.medium?.url ||
@@ -28,7 +28,7 @@ const ChannelInfo = ({ videoId }) => {
                         round={true}
                     />
                 </div>
-                <div>
+                <div className='w-full'>
                     <div className='text-lg font-medium'>
                         {currentChannel?.snippet?.title}
                     </div>

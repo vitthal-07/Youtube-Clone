@@ -5,7 +5,10 @@ const messageSlice = createSlice({
     initialState: [{}],
     reducers: {
         addMessage: (state, action) => {
-            state.push(action.payload);
+            if (state.length >= 100) {
+                state.pop();
+            }
+            state.unshift(action.payload);
         },
     },
 });
