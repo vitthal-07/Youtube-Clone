@@ -26,9 +26,12 @@ export const Watch = () => {
     const [searchParams] = useSearchParams();
     const videoId = searchParams.get("v");
     const videos = useSelector((store) => store.videos);
-    const channels = useSelector((store) => store.channels);
-    const currentChannel = channels[videoId];
-    const currentVideo = videos.find((video) => video.id === videoId);
+    const currentVideo = videos.find(
+        (video) => video.id === videoId || video.id.videoId === videoId
+    );
+    const currChannel = useSelector((store) =>
+        currentVideo ? store.channels[currentVideo.snippet.channelId] : null
+    );
 
     const dispatch = useDispatch();
 
@@ -44,7 +47,10 @@ export const Watch = () => {
                     <div className='text-2xl font-bold my-2'>
                         {currentVideo?.snippet?.title}
                     </div>
-                    <VideoControls videoId={videoId} />
+                    <VideoControls
+                        currChannel={currChannel}
+                        currentVideo={currentVideo}
+                    />
                 </div>
                 <SidePanel />
             </div>

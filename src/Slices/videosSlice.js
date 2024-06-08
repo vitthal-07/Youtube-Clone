@@ -1,5 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchVideosAsync } from "../Services/FetchVideos";
+import {
+    fetchVideosAsync,
+    fetchVideosByCategoryAsync,
+} from "../Services/FetchVideos";
 
 const videosSlice = createSlice({
     name: "videos",
@@ -9,6 +12,12 @@ const videosSlice = createSlice({
         builder.addCase(fetchVideosAsync.fulfilled, (state, action) => {
             return action.payload;
         });
+        builder.addCase(
+            fetchVideosByCategoryAsync.fulfilled,
+            (state, action) => {
+                return action.payload;
+            }
+        );
     },
 });
 

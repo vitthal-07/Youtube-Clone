@@ -71,7 +71,7 @@ export default function Navbar() {
             <form
                 className={`md:flex items-center ${
                     searchVisible ? "flex" : "hidden"
-                } w-full md:w-[40%] h-10`}
+                } w-full md:w-[35%] h-10`}
                 onSubmit={handleSearchSubmit}
             >
                 <div className='flex-grow p-1 border rounded-l-full border-gray-400 h-full'>

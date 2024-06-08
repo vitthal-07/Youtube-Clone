@@ -3,11 +3,11 @@ import { fetchChannelsAsync } from "../Services/FetchVideos";
 
 const channelsSlice = createSlice({
     name: "channels",
-    initialState: {},
+    initialState: [],
     reducers: {},
     extraReducers: (builder) => {
         builder.addCase(fetchChannelsAsync.fulfilled, (state, action) => {
-            return { ...state, ...action.payload };
+            return action.payload;
         });
     },
 });

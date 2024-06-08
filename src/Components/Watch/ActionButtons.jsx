@@ -14,10 +14,7 @@ const formatLikeCount = (count) => {
     return `${count}`;
 };
 
-const ActionButtons = ({ videoId }) => {
-    const videos = useSelector((store) => store.videos);
-    const currentVideo = videos.find((video) => video.id === videoId);
-
+const ActionButtons = ({ currentVideo }) => {
     return (
         <div className='flex items-center justify-between w-[40%] '>
             <div className='rounded-full bg-zinc-800 text-md font-medium text-white p-2 w-32 flex justify-between'>

@@ -11,18 +11,14 @@ const formatSubscriberCount = (count) => {
     return `${count} subscribers`;
 };
 
-const ChannelInfo = ({ videoId }) => {
-    const channels = useSelector((store) => store.channels);
-    const currentChannel = channels[videoId];
-
+const ChannelInfo = ({ currChannel }) => {
     return (
         <div className='flex items-center justify-between w-[450px] overflow-hidden'>
             <div className='flex w-[300px] justify-between'>
                 <div className='w-16'>
                     <Avatar
                         src={
-                            currentChannel?.snippet?.thumbnails?.medium?.url ||
-                            ""
+                            currChannel?.snippet?.thumbnails?.medium?.url || ""
                         }
                         size='50'
                         round={true}
@@ -30,11 +26,11 @@ const ChannelInfo = ({ videoId }) => {
                 </div>
                 <div className='w-full'>
                     <div className='text-lg font-medium'>
-                        {currentChannel?.snippet?.title}
+                        {currChannel?.snippet?.title}
                     </div>
                     <div>
                         {formatSubscriberCount(
-                            currentChannel?.statistics?.subscriberCount
+                            currChannel?.statistics?.subscriberCount
                         )}
                     </div>
                 </div>
