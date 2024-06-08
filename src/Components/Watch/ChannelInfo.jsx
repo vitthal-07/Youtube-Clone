@@ -1,5 +1,4 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import Avatar from "react-avatar";
 
 const formatSubscriberCount = (count) => {

@@ -4,8 +4,8 @@ import { changeCategory } from "../../Slices/activeCategorySlice";
 
 const topNavigationItems = [
     "All",
-    "News",
     "Game of Thrones",
+    "Javascript",
     "Programming",
     "Music",
     "Sports",
@@ -18,14 +18,30 @@ const topNavigationItems = [
     "Science",
     "Technology",
     "Travel",
+    "Vlogs",
+    "News",
+    "Comedy",
+    "Beauty",
+    "DIY",
+    "Food",
+    "Fitness",
+    "Reviews",
+    "How-to",
+    "Animation",
+    "Documentary",
+    "History",
+    "Nature",
+    "Kids",
+    "Shorts",
+    "Trailer",
 ];
 
 const ButtonList = () => {
     const [activeBtn, setActivebtn] = useState("All");
     const dispatch = useDispatch();
     const videoByTag = (tag) => {
+        dispatch(changeCategory(tag));
         if (activeBtn !== tag) {
-            dispatch(changeCategory(tag));
             setActivebtn(tag);
         }
     };

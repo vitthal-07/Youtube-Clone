@@ -1,7 +1,7 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-const API_KEY = "AIzaSyCP_gh2uOnizHUaG9KKh51mBx_bEjypMXI";
+const API_KEY = "AIzaSyAnnhBo7KHmORTVLHteBujKy9tnOqgisPY";
 
 export const fetchVideosAsync = createAsyncThunk(
     "videos/fetchVideos",
@@ -9,8 +9,6 @@ export const fetchVideosAsync = createAsyncThunk(
         const response = await axios.get(
             `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=US&key=${API_KEY}`
         );
-        console.log("Video API Called");
-
         return response.data.items;
     }
 );

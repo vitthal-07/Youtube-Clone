@@ -42,7 +42,7 @@ export const Watch = () => {
     return (
         <div className='py-5 mx-auto text-white w-full absolute bg-black flex flex-wrap justify-center h-[200vh]'>
             <div className='w-[90%] flex flex-wrap justify-between py-3 h-full'>
-                <div className='md:w-[1070px]'>
+                <div className='md:w-[1070px] overflow-hidden'>
                     <VideoPlayer videoId={videoId} />
                     <div className='text-2xl font-bold my-2'>
                         {currentVideo?.snippet?.title}

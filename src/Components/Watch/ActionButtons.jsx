@@ -3,7 +3,6 @@ import { AiOutlineLike, AiOutlineDislike } from "react-icons/ai";
 import { PiShareFat } from "react-icons/pi";
 import { LiaDownloadSolid } from "react-icons/lia";
 import { HiDotsHorizontal } from "react-icons/hi";
-import { useSelector } from "react-redux";
 
 const formatLikeCount = (count) => {
     if (count > 1000000) {
@@ -21,7 +20,10 @@ const ActionButtons = ({ currentVideo }) => {
                 <button className='flex w-[400px] justify-between mx-2'>
                     <AiOutlineLike size={24} />
                     <div className='ml-1'>
-                        {formatLikeCount(currentVideo?.statistics?.likeCount)}
+                        {currentVideo?.statistics?.likeCount &&
+                            formatLikeCount(
+                                currentVideo?.statistics?.likeCount
+                            )}
                     </div>
                 </button>
                 <button className='border-l pl-2 border-gray-600 w-[40%]'>

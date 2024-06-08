@@ -4,6 +4,7 @@ import channelsSlice from "../Slices/channelsSlice";
 import sidebarSlice from "../Slices/SidebarSlice";
 import messageSlice from "../Slices/ChatMessageSlice";
 import categorySlice from "../Slices/activeCategorySlice";
+import showSuggestionSlice from "../Slices/showSuggestionSlice";
 
 const store = configureStore({
     reducer: {
@@ -12,6 +13,7 @@ const store = configureStore({
         sidebar: sidebarSlice.reducer,
         messages: messageSlice.reducer,
         category: categorySlice.reducer,
+        suggetions: showSuggestionSlice.reducer,
     },
 });
 
