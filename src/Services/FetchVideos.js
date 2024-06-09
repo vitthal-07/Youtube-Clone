@@ -1,7 +1,8 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-const API_KEY = "AIzaSyAnnhBo7KHmORTVLHteBujKy9tnOqgisPY";
+const API_KEY = "AIzaSyBbx6wSu7sqVIb1ZE3Sdb11j5q36kSATeM";
+// const API_KEY = "AIzaSyAnnhBo7KHmORTVLHteBujKy9tnOqgisPY";
 
 export const fetchVideosAsync = createAsyncThunk(
     "videos/fetchVideos",

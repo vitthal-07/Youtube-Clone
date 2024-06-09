@@ -15,7 +15,7 @@ const formatLikeCount = (count) => {
 
 const ActionButtons = ({ currentVideo }) => {
     return (
-        <div className='flex items-center justify-between w-[40%] '>
+        <div className='flex items-center justify-between md:w-[40%] w-full md:my-0 my-3'>
             <div className='rounded-full bg-zinc-800 text-md font-medium text-white p-2 w-32 flex justify-between'>
                 <button className='flex w-[400px] justify-between mx-2'>
                     <AiOutlineLike size={24} />

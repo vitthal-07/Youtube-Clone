@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const showSuggestionSlice = createSlice({
-    name: "suggetions",
+    name: "suggestions",
     initialState: [],
     reducers: {
         setSuggestions: (state, action) => {

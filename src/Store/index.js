@@ -13,7 +13,7 @@ const store = configureStore({
         sidebar: sidebarSlice.reducer,
         messages: messageSlice.reducer,
         category: categorySlice.reducer,
-        suggetions: showSuggestionSlice.reducer,
+        suggestions: showSuggestionSlice.reducer,
     },
 });
 

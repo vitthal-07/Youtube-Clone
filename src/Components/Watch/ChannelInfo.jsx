@@ -12,7 +12,7 @@ const formatSubscriberCount = (count) => {
 
 const ChannelInfo = ({ currChannel }) => {
     return (
-        <div className='flex items-center justify-between w-[450px] overflow-hidden'>
+        <div className='flex items-center justify-between md:w-[450px] w-full overflow-hidden'>
             <div className='flex w-[300px] justify-between'>
                 <div className='w-16'>
                     <Avatar
