@@ -50,12 +50,18 @@ const Searchbar = ({ searchVisible, setSearchVisible }) => {
     };
 
     useEffect(() => {
-        if (searchTerm.trim() !== "") {
-            setShowSuggestions(true);
-            fetchSuggestions();
-        } else {
-            setShowSuggestions(false);
-        }
+        const timer = setTimeout(() => {
+            if (searchTerm.trim() !== "") {
+                setShowSuggestions(true);
+                fetchSuggestions();
+            } else {
+                setShowSuggestions(false);
+            }
+        }, 250);
+
+        return () => {
+            clearTimeout(timer);
+        };
     }, [searchTerm]);
 
     useEffect(() => {
