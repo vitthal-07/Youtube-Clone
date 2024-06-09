@@ -3,7 +3,7 @@ import { LiveChat } from "./LiveChat";
 
 export const SidePanel = () => {
     return (
-        <div className='w-[415px] md:mx-0 mx-auto text-white items-center flex flex-col'>
+        <div className='w-[410px] md:mx-0 mx-auto text-white items-center flex flex-col'>
             <LiveChat />
         </div>
     );

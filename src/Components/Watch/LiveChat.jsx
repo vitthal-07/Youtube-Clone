@@ -49,7 +49,7 @@ export const LiveChat = () => {
                     <RiCloseLargeFill size={32} />
                 </div>
             </div>
-            <div className='h-[30rem] overflow-y-auto p-3 flex flex-col-reverse'>
+            <div className='h-[30rem] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-black sc p-3 flex flex-col-reverse'>
                 {messages.map((item, idx) => {
                     return <ChatMessage key={idx} item={item} />;
                 })}

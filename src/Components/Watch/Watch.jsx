@@ -40,7 +40,7 @@ export const Watch = () => {
     }, []);
 
     return (
-        <div className='py-5 mx-auto text-white w-full absolute bg-black flex flex-wrap justify-center min-h-[99vh] h-fit'>
+        <div className='py-5 mx-auto text-white w-full absolute bg-black flex lg:flex-nowrap flex-wrap justify-center min-h-[99vh] h-fit'>
             <div className='w-[90%] flex flex-wrap justify-between py-3 h-fit'>
                 <div className='md:w-[1070px] overflow-hidden h-fit'>
                     <VideoPlayer videoId={videoId} />

@@ -63,6 +63,7 @@ const Searchbar = ({ searchVisible, setSearchVisible }) => {
             if (!searchInputRef.current.contains(event.target)) {
                 setSearchVisible(false);
             }
+            setShowSuggestions(false);
         };
         document.addEventListener("mousedown", handleClickOutside);
         return () => {
