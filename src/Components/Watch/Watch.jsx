@@ -6,22 +6,6 @@ import VideoControls from "./VideoControls";
 import VideoPlayer from "./VideoPlayer";
 import { SidePanel } from "./SidePanel";
 
-const formatSubscriberCount = (count) => {
-    if (count > 1000000) {
-        return `${Math.floor(count / 1000000)}M subscribers`;
-    } else if (count > 1000) {
-        return `${Math.floor(count / 1000)}K subscribers`;
-    }
-    return `${count} subscribers`;
-};
-const formatLikeCount = (count) => {
-    if (count > 1000000) {
-        return `${Math.floor(count / 1000000)}M`;
-    } else if (count > 1000) {
-        return `${Math.floor(count / 1000)}K`;
-    }
-    return `${count}`;
-};
 export const Watch = () => {
     const [searchParams] = useSearchParams();
     const videoId = searchParams.get("v");
@@ -41,7 +25,7 @@ export const Watch = () => {
 
     return (
         <div className='py-5 mx-auto text-white w-full absolute bg-black flex lg:flex-nowrap flex-wrap justify-center min-h-[99vh] h-fit'>
-            <div className='w-[90%] flex flex-wrap justify-between py-3 h-fit'>
+            <div className='w-[90%] flex xl:flex-nowrap flex-wrap justify-between py-3 h-fit'>
                 <div className='md:w-[1070px] overflow-hidden h-fit'>
                     <VideoPlayer videoId={videoId} />
                     <div className='text-2xl font-bold my-2'>
