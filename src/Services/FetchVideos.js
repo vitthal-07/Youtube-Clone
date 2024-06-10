@@ -8,7 +8,7 @@ export const fetchVideosAsync = createAsyncThunk(
     "videos/fetchVideos",
     async () => {
         const response = await axios.get(
-            `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=US&key=${API_KEY}`
+            `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=100&regionCode=US&key=${API_KEY}`
         );
         return response.data.items;
     }
