@@ -37,7 +37,7 @@ To run the application, follow these steps:
 
 ### Video Streaming Demo
 
-[![Video Streaming Demo](/public/Thumbnail.png)](/public/VideoStreaming.mp4)
+[![Video Streaming Demo]](/public/VideoStreaming.mp4)
 
 ## Authors
 
